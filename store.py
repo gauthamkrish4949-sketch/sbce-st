@@ -183,6 +183,8 @@ def dispatch_order(order_id):
 def admin_panel():
     if not session.get('is_admin'):
         return redirect(url_for('admin_login'))
+    
+    # Use .get() or global to ensure the list is recognized
     return render_template('admin.html', orders=orders_received)
 
 @app.route('/verify_order/<int:order_id>', methods=['POST'])
