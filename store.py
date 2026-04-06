@@ -159,13 +159,15 @@ def login():
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
-        u, p = request.form.get('username'), request.form.get('password')
+        u = request.form.get('username')
+        p = request.form.get('password')
         if u == "admin" and p == "sbce123":
             session['is_admin'] = True
             return redirect(url_for('admin_panel'))
-        return render_template('admin_login_page.html', error="Invalid Admin Credentials")
-    return render_template('admin_login_page.html')
-
+        # Ensure this matches your file name exactly
+        return render_template('admin.html', error="Invalid Credentials")
+    return render_template('admin.html')
+    
 @app.route('/logout')
 def logout():
     session.clear()
