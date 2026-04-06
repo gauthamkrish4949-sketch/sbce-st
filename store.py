@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-app.secret_key = "sbce_admin_secure_key_2026"
+app.secret_key = 'sbce_secret_key_2026'
 
 # --- Configuration ---
 UPLOAD_FOLDER = 'uploads'
